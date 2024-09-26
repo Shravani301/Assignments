@@ -1,0 +1,16 @@
+The game prompts the player to guess a number between 1 and 100.
+For each guess, the program checks if the guessed number is correct.
+If the guess is greater than the target number, the program prints:
+"Oops! Sorry, too high."
+If the guess is less than the target number, the program prints:
+"Oops! Sorry, too low."
+If the guess matches the target number, the program prints:
+"Yayyy! Your guessed number is correct. You took [number of tries]!"
+After a correct guess, the program asks the player if they want to continue playing:
+
+If the player enters "y", the game restarts, and a new random number is generated for the next round.
+If the player enters "n", the game ends with a thank-you message.
+In the image:
+
+The first round took 9 tries to guess the correct number.
+The second round took 4 tries, after which the user chose to exit by pressing "n".
