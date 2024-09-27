@@ -1,0 +1,2 @@
+File IO operations with Stream Writer Class.
+The Stream Writer class overwrites the existing content in the file unless you explicitly tell it to append data.StreamReader contains Peek(), Seek(), Read(), and ReadLine(), close() methods.
