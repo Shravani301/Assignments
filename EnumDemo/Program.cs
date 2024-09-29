@@ -35,7 +35,7 @@ namespace EnumDemo
     // changing the type to byte using :
     enum Light : byte
     {
-        // OFF denotes the Button is switched Off... with value 0
+        // OFF denotes the Light is switched Off... with value 0
         Off,
 
         // ON denotes the Light is switched on.. with value 1
@@ -48,7 +48,7 @@ namespace EnumDemo
         {
             Console.WriteLine("The difference between Special Initialisation cases and non-initialisation cases\n\n");
 
-            // Print Week enum values
+            // Printing Week enum values
             PrintEnumValues<Week>("Week Enum");
 
             // Colors is the special initialization case demonstrated as expected
