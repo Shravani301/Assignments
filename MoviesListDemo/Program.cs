@@ -52,6 +52,7 @@ namespace MoviesListDemo
         {
             if (movies.Count == 0)
                 Console.WriteLine("Please add a Movie");
+
             foreach (Movie movie in movies)
             {
                 Console.WriteLine(movie);
@@ -70,8 +71,7 @@ namespace MoviesListDemo
             movies.Add(new Movie(id, title, genre, year));
         }
         public static void ClearAll(List<Movie> movies)
-        {
-            
+        {            
             movies.Clear();
         }
     }

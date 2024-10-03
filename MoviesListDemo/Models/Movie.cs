@@ -22,8 +22,7 @@ namespace MoviesListDemo.Models
         }
         public override string ToString()
         {
-            return $"*************Movies Details*************\n" +
-                $"Movie Id is: {MovieId}\n" +
+            return $"Movie Id is: {MovieId}\n" +
                 $"Movie Name is: {MovieName}\n" +
                 $"MovieGenre is: {MovieGenre}\n" +
                 $"MovieYear is: {MovieYear}\n";
