@@ -1,4 +1,4 @@
-﻿using NumberGuessApp.Models;
+using NumberGuessApp.Models;
 
 namespace NumberGuessApp
 {
@@ -6,60 +6,66 @@ namespace NumberGuessApp
     {
         static void Main(string[] args)
         {
-            NumberGuessingGame game = new NumberGuessingGame();
-
             Console.WriteLine("Welcome to Guess Number Game");
+            var game = new NumberGuessingGame();
 
-            string playAgain;
             do
             {
-                PlayGame(game);
-                Console.Write("Do you want to play again? (y/n): ");
-                playAgain = Console.ReadLine() ?? string.Empty;
-
-                if (playAgain.ToLower() == "y")
-                {
-                    game.ResetGame();
-                }
-
-            } while (playAgain.ToLower() == "y");
+                RunGameSession(game);
+            } while (UserWantsToPlayAgain());
 
             Console.WriteLine("Thanks for playing!");
         }
 
-        private static void PlayGame(NumberGuessingGame game)
+        private static void RunGameSession(NumberGuessingGame game)
         {
             Console.WriteLine("You Will Be Asked To Guess A Number To Win The Game");
-            int guess;
-            int result;
+            game.ResetGame();
 
+            int result;
             do
             {
-                Console.Write("Enter a guess number between 1 to 100: ");
-                if (int.TryParse(Console.ReadLine(), out guess))
-                {
-                    result = game.GuessNumber(guess);
-
-                    if (result == -1)
-                    {
-                        Console.WriteLine("Oops! Sorry, too low.");
-                    }
-                    else if (result == 1)
-                    {
-                        Console.WriteLine("Oops! Sorry, too high.");
-                    }
-                    else
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"Yayyy! Your guessed number is correct. You took {game.GetTries()} tries!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid number.");
-                    result = -1;
-                }
+                result = ProcessGuess(game);
             } while (result != 0);
+
+            Console.WriteLine($"Yayyy! Your guessed number is correct. You took {game.GetTries()} tries!\n");
+        }
+
+        private static int ProcessGuess(NumberGuessingGame game)
+        {
+            var guess = GetUserGuess();
+            var result = game.GuessNumber(guess);
+
+            if (result == -1)
+            {
+                Console.WriteLine("Oops! Sorry, too low.");
+            }
+            else if (result == 1)
+            {
+                Console.WriteLine("Oops! Sorry, too high.");
+            }
+
+            return result;
+        }
+
+        private static int GetUserGuess()
+        {
+            int guess;
+            Console.Write("Enter a guess number between 1 to 100: ");
+
+            while (!int.TryParse(Console.ReadLine(), out guess))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number.");
+            }
+
+            return guess;
+        }
+
+        private static bool UserWantsToPlayAgain()
+        {
+            Console.Write("Do you want to play again? (y/n): ");
+            var response = Console.ReadLine()?.ToLower() ?? string.Empty;
+            return response == "y";
         }
     }
 }
