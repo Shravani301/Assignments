@@ -9,9 +9,7 @@ namespace AccountsDemo
         
         static void Main(string[] args)
         {
-            
-            AccountManager manager = new AccountManager();
-            AccountStore.DisplayMenu();
+           AccountStore.DisplayMenu();
         }
     }
 }
