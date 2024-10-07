@@ -16,7 +16,8 @@ namespace PigDice.Presentation
         {
             while (!pigGameManager.IsGameOver())
             {
-                Console.WriteLine("\nCurrent turn score: " + pigGameManager.GetCurrentTurnScore() + ", Total score: " + pigGameManager.GetTotalScore());
+                Console.WriteLine($"\nTurn Number: {pigGameManager.GetTurnNumber()}");
+                Console.WriteLine($"Current turn score: {pigGameManager.GetCurrentTurnScore()}, Total score: {pigGameManager.GetTotalScore()}");
                 Console.WriteLine("Enter your choice:");
                 Console.WriteLine("r: Roll the dice");
                 Console.WriteLine("h: Hold");

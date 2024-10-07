@@ -58,5 +58,10 @@ namespace PigDice.Controller
         {
             return pigGame.TotalScore;
         }
+
+        public int GetTurnNumber() // New method to get current turn number
+        {
+            return pigGame.TurnNumber;
+        }
     }
 }
