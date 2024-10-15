@@ -14,6 +14,7 @@ namespace AccountExceptionDemo.Controller
     internal class AccountManager
     {
         static List<Account> accounts = new List<Account>();
+        List<Transaction> transactions = new List<Transaction>();
         public AccountManager()
         {
             accounts = Serialization.Deserialze();
@@ -28,6 +29,7 @@ namespace AccountExceptionDemo.Controller
                 {
                     throw new AccountNotFoundException("No such Account Exist");
                 }
+                
                 return account.DepositAmount(amount);
             }
             catch (AccountNotFoundException e)
